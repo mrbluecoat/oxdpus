@@ -9,6 +9,16 @@
  *
  */
 
+#ifdef asm_inline
+#undef asm_inline
+#define asm_inline asm
+#endif
+
+#ifdef asm_volatile_goto
+#undef asm_volatile_goto
+#endif
+#define asm_volatile_goto(x...) asm volatile("invalid use of asm_volatile_goto")
+
 #include <linux/bpf.h>
 #include <linux/if_ether.h>
 #include <linux/ip.h>
